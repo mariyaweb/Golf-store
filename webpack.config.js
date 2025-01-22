@@ -7,7 +7,7 @@ export default () => {
     build: path.resolve(__dirname, 'build'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
-  }
+  };
 
   const mode = process.env.NODE_ENV || 'development';
   const PORT = process.env.PORT || 3000;
@@ -17,8 +17,8 @@ export default () => {
     mode,
     paths,
     isDev,
-    port: PORT
-  })
+    port: PORT,
+  });
 
   return config;
 };
