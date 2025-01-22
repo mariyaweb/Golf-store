@@ -1,0 +1,46 @@
+{
+  "name": "golf-store",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Mariyaweb",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "start": "set NODE_ENV=development&& node --require @babel/register ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.js",
+    "build:dev": "set NODE_ENV=development&& node --require @babel/register ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "build": "set NODE_ENV=production&& node --require @babel/register ./node_modules/webpack/bin/webpack.js --config webpack.config.js",
+    "lint": "eslint src --ext js,jsx",
+    "lint-fix": "eslint src --ext js,jsx --fix"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-react-jsx": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/register": "^7.25.9",
+    "@svgr/webpack": "^8.1.0",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.1.1"
+  }
+}
