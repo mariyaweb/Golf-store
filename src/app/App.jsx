@@ -1,13 +1,13 @@
 import { AppRouter } from 'providers/router/';
-import { Navbar } from 'widgets/Navbar';
-import './styles/index.css';
+import './styles/index.scss';
+import { Header } from 'widgets/Header/';
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <>
+      <Header />
       <AppRouter />
-    </div>
+    </>
   );
 }
 

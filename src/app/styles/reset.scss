@@ -1,21 +1,83 @@
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  border: 0;
+  -box-sizing-webkit: border-box;
   box-sizing: border-box;
 }
 
-li {
-  list-style-type: none;
-}
+html {
+  font-style: normal;
+  line-height: normal;
 
-input,
-button,
-textarea,
-select {
-  margin: 0;
-  font: inherit;
-}
+  body {
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 
-a {
-  text-decoration: none;
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  button,
+  select,
+  input,
+  a,
+  div,
+  li,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  path,
+  rect {
+    transition: all 0.3s ease-out;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  button,
+  input,
+  label,
+  select {
+    cursor: pointer;
+  }
+
+  input,
+  textarea,
+  select,
+  button,
+  option {
+    font-family: inherit;
+  }
+
+  img {
+    display: block;
+  }
+
+  :focus,
+  :active {
+    outline: none;
+  }
 }

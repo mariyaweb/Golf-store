@@ -29,6 +29,8 @@ module.exports = {
     'no-unused-vars': 'warn',
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'warn',
-    'no-restricted-globals': 'warn'
+    'no-restricted-globals': 'warn',
+    'react/self-closing-comp': 'off',
+    'no-shadow': 'off',
   },
 };
