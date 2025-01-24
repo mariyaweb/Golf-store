@@ -1,0 +1,49 @@
+@use 'app/styles/helpers/helpers.scss' as b;
+
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+
+  @include b.tablet {
+    display: flex;
+  }
+
+  &__line {
+    height: 2px;
+    width: 40px;
+    background-color: var(--main-bg-dark-color);
+
+
+    &:nth-child(2) {
+      height: 1px;
+      border-bottom: 2px solid var(--main-bg-dark-color);
+    }
+  }
+
+}
+
+.open .burger {
+  position: relative;
+  align-items: center;
+
+  &__line {
+    position: absolute;
+
+    &:nth-child(1) {
+      transform: rotate(-45deg);
+    }
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(45deg);
+    }
+  }
+}

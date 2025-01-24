@@ -1,8 +1,11 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import webpack from 'webpack';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-export function buildPlugins({ paths }) {
 
+export function buildPlugins({ paths }) {
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
@@ -11,6 +14,6 @@ export function buildPlugins({ paths }) {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
-    })
-  ]
+    }),
+  ];
 }

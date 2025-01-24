@@ -1,3 +1,7 @@
 .appLink {
-  color: white;
+  color: var(--text-medium-color);
+}
+
+.appLink:hover {
+  color: var(--main-text-dark-color);
 }
