@@ -1,0 +1,81 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.main {
+  background: url('widgets/assets/img/main.png') no-repeat top center, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%), var(--main-bg-dark-color);
+  height: 100%;
+
+  @include b.laptop {
+    background: url('widgets/assets/img/main.png') -440px 0px/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%), var(--main-bg-dark-color);
+  }
+
+  @media (max-width: 800px) {
+    background: url('widgets/assets/img/main.png') -500px 0px/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%);
+  }
+
+  @include b.tablet {
+    background: url(http://localhost:4000/assets/main.png) 65% -5%/1200px 532.49px no-repeat, linear-gradient(90deg, #121212 0%, #121212 70%, #020202 95%, #000 100%)
+  }
+
+  &__wrapper {
+    padding-top: 196px;
+    padding-bottom: 196px;
+
+    @include b.tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 320px;
+    }
+  }
+
+
+  &__title {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 72px;
+    line-height: 80px;
+    letter-spacing: -2px;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 16.06%, #FFF 86.9%, rgba(255, 255, 255, 0.00) 106.25%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    max-width: 480px;
+    margin-bottom: 8px;
+
+    @include b.tablet {
+      font-size: 40px;
+      text-align: center;
+      max-width: 290px;
+      line-height: 44px;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__subtitle {
+    font-family: var(--secondary-font-family);
+    color: var(--main-text-light-color);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 160%;
+    max-width: 480px;
+    margin-bottom: 28px;
+
+    @include b.tablet {
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    color: var(--main-text-dark-color);
+    background-color: var(--accent-bg-color);
+    padding: 12px 56px;
+    border-radius: 8px;
+    transition: all 0.8s ease;
+
+    &:hover {
+      background-color: var(--accent-bg-hover-color);
+      color: var(--text-medium-color);
+      transition: all 0.8s ease;
+    }
+  }
+}

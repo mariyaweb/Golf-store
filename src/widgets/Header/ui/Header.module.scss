@@ -2,10 +2,12 @@
 
 .header {
   padding: 25px 0;
+  background-color: var(--main-bg-light-color);
 
   @include b.tablet {
     position: sticky;
     top: 0;
+    padding: 10px 0;
   }
 }
 
@@ -24,18 +26,18 @@
 .nav__container {
   @include b.tablet {
     position: fixed;
-    top: 80px;
+    top: 60px;
     flex-basis: 100%;
     order: 4;
     z-index: 50;
     background-color: var(--main-bg-light-color);
-    width: calc(100% - b.$tablet-padding * 2);
+    width: calc(100% + b.$tablet-padding * 2);
     left: 100%;
     animation: hideMenu 1s;
 
     &.open {
       animation: showMenu 1s;
-      left: auto;
+      left: 0;
     }
   }
 }
@@ -46,13 +48,13 @@
   }
 
   100% {
-    left: b.$tablet-padding;
+    left: 0;
   }
 }
 
 @keyframes hideMenu {
   0% {
-    left: b.$tablet-padding;
+    left: 0;
   }
 
   100% {
@@ -67,7 +69,6 @@
   @include b.tablet {
     flex-direction: column;
     align-items: center;
-    border: 1px solid var(--main-bg-dark-color);
     padding: 40px 0;
   }
 }

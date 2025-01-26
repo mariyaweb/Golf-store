@@ -1,8 +1,8 @@
+import { MainScreen } from './ui/MainScreen/MainScreen';
+
 function MainPage() {
   return (
-    <div>
-      Main Page
-    </div>
+    <MainScreen />
   );
 }
 
