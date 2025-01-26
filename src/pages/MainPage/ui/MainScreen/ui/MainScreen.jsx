@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import * as cls from './MainScreen.module.scss';
 

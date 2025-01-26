@@ -1,8 +1,12 @@
-import { MainScreen } from './ui/MainScreen/MainScreen';
+import { Categories } from './ui/Categories';
+import { MainScreen } from './ui/MainScreen';
 
 function MainPage() {
   return (
-    <MainScreen />
+    <>
+      <MainScreen />
+      <Categories />
+    </>
   );
 }
 
