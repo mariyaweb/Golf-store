@@ -1,0 +1,45 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--main-text-light-color);
+
+  @include b.tablet {
+    flex-direction: column;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex-basis: 50%;
+
+    @include b.laptop {
+      flex-basis: 40%;
+    }
+
+    @include b.tablet {
+      flex-basis: 100%;
+      padding-bottom: 32px;
+    }
+  }
+
+  &__right {
+    display: flex;
+  }
+
+  &__logo {
+    flex-grow: 0;
+  }
+
+  &__slogan {
+    font-size: 20px;
+    max-width: 230px;
+
+    @include b.tablet {
+      max-width: 100%;
+    }
+  }
+}
