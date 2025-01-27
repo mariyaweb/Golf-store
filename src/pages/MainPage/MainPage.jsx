@@ -1,4 +1,5 @@
 import { Categories } from './ui/Categories';
+import { Collection } from './ui/Collection';
 import { MainScreen } from './ui/MainScreen';
 import { Timer } from './ui/Timer';
 
@@ -8,6 +9,7 @@ function MainPage() {
       <MainScreen />
       <Categories />
       <Timer />
+      <Collection />
     </>
   );
 }
