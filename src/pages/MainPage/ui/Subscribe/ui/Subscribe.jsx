@@ -24,7 +24,7 @@ export function Subscribe({ className }) {
         <p className={cls.subscribe__subTitle}>Sign up for deals, new products and promotions</p>
         <form onSubmit={onSubscribeHandler}>
           <div className={cls.input__container}>
-            <EmailImg />
+            <EmailImg className={cls.input__icon} />
             <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" className={cls.input__input} placeholder="Enter your email" />
             <Button type="submit" className={cls.input__btn}>Subscribe</Button>
           </div>
