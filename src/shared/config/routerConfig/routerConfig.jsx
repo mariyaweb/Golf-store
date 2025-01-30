@@ -7,31 +7,18 @@ export const AppRoutes = {
   MAIN: 'main',
   ABOUT: 'about',
   SHOP: 'shop',
+  SHOP_CATEGORY: 'shop_category',
   NOT_FOUND: 'not_found',
 };
 
-export const RoutePath = {
-  [AppRoutes.MAIN]: '/',
-  [AppRoutes.ABOUT]: '/about',
-  [AppRoutes.SHOP]: '/shop',
-  [AppRoutes.NOT_FOUND]: '*',
-};
+const routes = [
+  { key: AppRoutes.MAIN, path: '/', component: <MainPage /> },
+  { key: AppRoutes.ABOUT, path: '/about', component: <AboutPage /> },
+  { key: AppRoutes.SHOP, path: '/shop', component: <ShopPage /> },
+  // { key: AppRoutes.SHOP_CATEGORY, path: '/shop/:category', component: <CategoryPage /> },
+  { key: AppRoutes.NOT_FOUND, path: '*', component: <NotFoundPage /> },
+];
 
-export const routeConfig = {
-  [AppRoutes.MAIN]: {
-    path: RoutePath.main,
-    element: <MainPage />,
-  },
-  [AppRoutes.ABOUT]: {
-    path: RoutePath.about,
-    element: <AboutPage />,
-  },
-  [AppRoutes.SHOP]: {
-    path: RoutePath.shop,
-    element: <ShopPage />,
-  },
-  [AppRoutes.NOT_FOUND]: {
-    path: RoutePath.not_found,
-    element: <NotFoundPage />,
-  },
-};
+export const routeConfig = Object.fromEntries(
+  routes.map(({ key, path, component }) => [key, { path, element: component }]),
+);
