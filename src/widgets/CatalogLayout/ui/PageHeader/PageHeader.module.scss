@@ -1,0 +1,40 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.pageHeader {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center right;
+    padding-top: 115px;
+    padding-bottom: 115px;
+    color: var(--main-text-light-color);
+    text-align: center;
+    gap: 24px;
+  }
+
+  &__breadcrumbs {
+    color: var(--main-text-light-color);
+  }
+
+  &__title {
+    font-size: 54px;
+
+    @include b.mobile {
+      font-size: 40px;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: 300;
+
+    @include b.mobile {
+      font-size: 18px;
+    }
+  }
+
+}

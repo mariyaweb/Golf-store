@@ -1,5 +1,5 @@
 import AboutPage from '../../../pages/AboutPage/AboutPage.async';
-import ShopPage from '../../../pages/ShopPage/ShopPage.async';
+import ShopPage from '../../../pages/ShopPage/CatalogPage.async';
 import MainPage from '../../../pages/MainPage/MainPage.async';
 import { NotFoundPage } from '../../../pages/NotFoundPage';
 

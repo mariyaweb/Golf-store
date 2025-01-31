@@ -1,6 +1,6 @@
 .breadcrumbs {
   font-size: 14px;
-  color: var(--text-medium-color);
+  color: var(--main-text-light-color);
 
   &__list {
     display: flex;
@@ -17,6 +17,6 @@
   }
 
   &__current {
-    color: var(--main-text-dark-color);
+    font-weight: 300;
   }
 }
