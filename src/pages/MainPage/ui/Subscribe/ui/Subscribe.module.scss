@@ -1,7 +1,6 @@
 @use 'app/styles/mixins/breakpoint.scss' as b;
 
 .subscribe {
-
   background-image: url('widgets/assets/img/subscribe.png'), linear-gradient(90deg, #050402 0%, #000 59%, #070707 59%, #060606 100%);
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -27,7 +26,7 @@
 
   &__error {
     height: 18px;
-    color: rgb(99, 14, 14);
+    color: rgb(99 14 14);
     font-size: 14px;
     margin-top: 8px;
   }
@@ -43,7 +42,6 @@
     padding: 12px 0;
 
     @include b.mobile {
-
       justify-content: space-between;
     }
   }

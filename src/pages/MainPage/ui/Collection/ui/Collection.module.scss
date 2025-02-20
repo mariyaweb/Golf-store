@@ -35,7 +35,7 @@
     }
   }
 
-  @media (max-width: 680px) {
+  @media (width <= 680px) {
     &__cards {
       display: grid;
       grid-template-columns: 1fr;
@@ -80,7 +80,7 @@
     font-size: 28px;
   }
 
-  @media (max-width: 940px) {
+  @media (width <= 940px) {
     &__name {
       font-size: 22px;
     }
@@ -106,7 +106,7 @@
     height: 100%;
   }
 
-  @media (max-width: 680px) {
+  @media (width <= 680px) {
     &__name {
       font-size: 28px;
 

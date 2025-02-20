@@ -1,8 +1,7 @@
-import { useLocation, Link, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 export const useBreadcrumbs = () => {
   const location = useLocation();
-  const params = useParams(); // for dynamic routes
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   const breadcrumbs = [{ name: 'Home', path: '/' }];

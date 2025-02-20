@@ -14,6 +14,7 @@ export function buildWebpackConfig(options) {
       path: paths.build,
       assetModuleFilename: 'assets/[name][ext]',
       clean: true,
+      publicPath: '/',
     },
     plugins: buildPlugins(options),
     module: {

@@ -6,8 +6,3 @@ export function classNames(cls, mods, additional) {
     .join(' ');
 }
 
-// Example
-// Use classNames:
-// <div className={classNames('app', {hovered: true, selected: true}, [theme])}>
-// Get string:
-// 'app dark hovered selected'
