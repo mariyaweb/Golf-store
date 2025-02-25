@@ -1,0 +1,17 @@
+export const CLOTHING_SIZE = {
+  one: 'One Size',
+  xs: 'XS',
+  s: 'S',
+  m: 'M',
+  l: 'L',
+  xl: 'XL',
+  '2xl': '2XL',
+  '3xl': '3XL',
+  '4xl': '4XL',
+  '5xl': '5XL',
+  8: '7-8 Years',
+  10: '9-10 Years',
+  12: '11-12 Years',
+  14: '13-14 Years',
+  16: '15-16 Years',
+};

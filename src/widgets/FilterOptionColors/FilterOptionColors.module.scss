@@ -1,0 +1,92 @@
+.filterOptionColors {
+  display: block;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('widgets/assets/icons/dropdown-arrow-black.png') no-repeat center;
+    transform: rotate(180deg);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-medium-color);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: capitalize;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+
+  &__color {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #DCDCDC;
+    margin-left: 5px;
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: scroll;
+  padding-right: 3px;
+
+  .filterOptionColors__list {
+    padding-right: 5px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #EAEAEA;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #6C7275;
+    border-radius: 10px;
+  }
+}
+
+
+.openFilter {
+  .filterOptionColors__list {
+    margin-bottom: 32px;
+  }
+
+  .filterOptionColors__btn {
+    transform: rotate(0deg);
+  }
+}

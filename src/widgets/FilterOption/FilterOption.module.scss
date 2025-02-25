@@ -1,0 +1,58 @@
+.filterOption {
+  display: block;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('widgets/assets/icons/dropdown-arrow-black.png') no-repeat center;
+    transform: rotate(180deg);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-medium-color);
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+  }
+
+  &__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: scroll;
+  padding-right: 3px;
+}
+
+.openFilter {
+  .filterOption__list {
+    margin-bottom: 32px;
+  }
+
+  .filterOption__btn {
+    transform: rotate(0deg);
+  }
+}
