@@ -1,22 +1,20 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useState, useEffect } from 'react';
-import { createFilterState, createFilterStructure } from 'entities/filter/model';
+import { createFilterState } from 'entities/filter/model';
 import { FILTER_ORDER } from 'shared/constants/filterOrder';
 import { FilterOption } from 'widgets/FilterOption/FilterOption';
+import { FilterOptionColors } from 'widgets/FilterOptionColors/FilterOptionColors';
 import * as cls from './CatalogFilters.module.scss';
-import { FilterOptionColors } from '../../../../widgets/FilterOptionColors/FilterOptionColors';
 
-export function CatalogFilters({ className }) {
-  const [filters, setFilters] = useState();
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+export function CatalogFilters({ className, setFilters }) {
+  const [availableFilters, setAvailableFilters] = useState();
+  const [selectedFilters, setSelectedFilters] = useState({});
 
   useEffect(() => {
     const loadFilters = async () => {
       try {
-        const filtersData = await createFilterState();
-        setFilters(filtersData);
+        const filtersData = await createFilterState(selectedFilters);
+        setAvailableFilters(filtersData);
       } catch (error) {
         console.error('Error fetching filters:', error);
       }
@@ -24,39 +22,67 @@ export function CatalogFilters({ className }) {
     loadFilters();
   }, []);
 
-  console.log(filters);
+  useEffect(() => {
+    const filterArr = Object.entries(selectedFilters)
+      .map(([key, values]) => {
+        const activeValues = Object.keys(values).filter((value) => values[value]);
+        if (activeValues.length === 0) return null;
+        if (key === 'category') {
+          return activeValues.map((id) => `categories.id:"${id}"`).join(',');
+        }
+        return `variants.attributes.${key}.key:"${activeValues.join('","')}"`;
+      })
+      .filter(Boolean);
 
-  const updatePageFilter = (value, isChecked) => {
-    console.log(`update page filter: ${value}, ${isChecked}`);
+    setFilters(filterArr);
+  }, [selectedFilters, setFilters]);
+
+  const updatePageFilter = (categoryKey, value, checkValue) => {
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [categoryKey]: {
+        ...prevFilters[categoryKey],
+        [value]: checkValue,
+      },
+    }));
   };
+
+  console.log('🟢 фильтры:', availableFilters);
+  console.log('🟢 Текущее состояние фильтров:', selectedFilters);
 
   return (
     <div className={classNames(cls.catalogFilters, {}, [className])}>
       <h2 className={cls.catalogFilters__title}>Filter</h2>
       <ul className={cls.catalogFilters__list}>
+        {availableFilters ? (
+          FILTER_ORDER.map((category) => {
+            if (!availableFilters[category]) return null;
 
-        {filters ? FILTER_ORDER.map((category) => (
-          category === 'colors'
-            ? (
-              <FilterOptionColors
-                optionList={filters[category].values}
-                onChange={updatePageFilter}
-                selectedValues={[]}
-                title={filters[category].name}
-                key={filters[category].name}
-                filterClass={category}
-              />
-            )
-            : (
+            if (category === 'colors') {
+              return (
+                <FilterOptionColors
+                  optionList={availableFilters[category].values}
+                  onChange={updatePageFilter}
+                  selectedValues={selectedFilters}
+                  title={availableFilters[category].name}
+                  key={category}
+                  filterClass={category}
+                  categoryKey={category}
+                />
+              );
+            }
+            return (
               <FilterOption
-                optionList={filters[category].values}
+                optionList={availableFilters[category].values}
                 onChange={updatePageFilter}
-                selectedValues={[]}
-                title={filters[category].name}
-                key={filters[category].name}
+                selectedValues={selectedFilters}
+                title={availableFilters[category].name}
+                key={category}
+                categoryKey={category}
               />
-            )
-        )) : null}
+            );
+          })
+        ) : null}
       </ul>
     </div>
   );

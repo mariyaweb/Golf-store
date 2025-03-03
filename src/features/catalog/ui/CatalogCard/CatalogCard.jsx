@@ -1,8 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
+import React from 'react';
 import * as cls from './CatalogCard.module.scss';
 
-export function CatalogCard({ className, product }) {
+export const CatalogCard = React.memo(({ className, product }) => {
   const {
     name,
     currentPrice,
@@ -36,4 +37,4 @@ export function CatalogCard({ className, product }) {
       </div>
     </div>
   );
-}
+});

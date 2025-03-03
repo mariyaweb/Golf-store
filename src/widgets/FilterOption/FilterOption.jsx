@@ -3,19 +3,17 @@ import { useState, useCallback } from 'react';
 import * as cls from './FilterOption.module.scss';
 
 export function FilterOption({
-  optionList, onChange, selectedValues, title,
+  optionList, onChange, selectedValues, title, categoryKey,
 }) {
   const [isOpen, setIsOpen] = useState(true);
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleCheckboxChange = useCallback((e) => {
-    const { value } = e.target;
-    const { checked } = e.target;
-    onChange(value, checked);
-  }, [onChange]);
+    const { value, checked } = e.target;
+    onChange(categoryKey, value, checked);
+  }, [onChange, categoryKey]);
 
   const isLong = optionList.length > 9;
-
   return (
     <li className={classNames(cls.filterOption, { [cls.openFilter]: isOpen }, [])}>
       <div className={cls.filterOption__header}>
@@ -35,21 +33,25 @@ export function FilterOption({
           [cls.openFilter]: isOpen,
         }, [])}
         >
-          {optionList.map((item) => (
-            <li key={`${item.key}-list`} className={cls.filterOption__item}>
-              <label htmlFor={item.value}>{item.name}</label>
-              <input
-                type="checkbox"
-                id={item.value}
-                name={item.value}
-                value={item.value}
-                key={item.key}
-                checked={selectedValues.includes(item.value)}
-                onChange={handleCheckboxChange}
-                className={cls.filterOption__checkbox}
-              />
-            </li>
-          ))}
+          {optionList.map((item) => {
+            const isChecked = selectedValues?.[categoryKey]?.[item.key] || false;
+            console.log(`🔹 ${item.value}: ${isChecked}`);
+            return (
+              <li key={`${item.key}-list`} className={cls.filterOption__item}>
+                <label htmlFor={item.key}>{item.name}</label>
+                <input
+                  type="checkbox"
+                  id={item.key}
+                  name={item.key}
+                  value={item.key}
+                  key={item.key}
+                  checked={isChecked}
+                  onChange={handleCheckboxChange}
+                  className={cls.filterOption__checkbox}
+                />
+              </li>
+            );
+          })}
         </ul>
       )}
     </li>
