@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
-import React from 'react';
+import { memo } from 'react';
 import * as cls from './CatalogCard.module.scss';
 
-export const CatalogCard = React.memo(({ className, product }) => {
+export const CatalogCard = memo(({ className, product }) => {
   const {
     name,
     currentPrice,

@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Breadcrumbs } from 'features/Breadcrumbs/ui/Breadcrumbs';
 import { useParams } from 'react-router-dom';
-import { categories } from 'entities/Category/model/categories';
+import { categories } from 'shared/constants/categories';
 import * as cls from './PageHeader.module.scss';
 
 export function PageHeader(props) {

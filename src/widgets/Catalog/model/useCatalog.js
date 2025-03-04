@@ -2,7 +2,7 @@ import {
   useState, useEffect, useCallback, useMemo,
 } from 'react';
 import { getFiltredGoods } from 'shared/api/products/getFiltredGoods';
-import { extractProductDataFiltered } from './extractProductDataFiltered';
+import { extractProductDataFiltered } from '../lib/extractProductDataFiltered';
 
 const GOODS_LIMIT = 15;
 

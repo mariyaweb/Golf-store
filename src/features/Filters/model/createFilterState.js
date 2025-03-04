@@ -2,7 +2,7 @@ import { getAllFilters } from 'shared/api/filters/getAllFilters';
 import { getCategories } from 'shared/api/categories/getCategories';
 import { filterCategoryNames } from 'shared/lib/filterCategoryNames/filterCategoryNames';
 import { isEmptyObj } from 'shared/lib/isEmptyObj/isEmptyObj';
-import { getAvailableFilters } from './getAvailableFilters';
+import { getAvailableFilters } from 'shared/api/filters/getAvailableFilters';
 
 export const createFilterState = async (selectedFilters) => {
   const filters = isEmptyObj(selectedFilters)
