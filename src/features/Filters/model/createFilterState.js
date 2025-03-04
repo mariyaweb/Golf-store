@@ -1,13 +1,8 @@
 import { getAllFilters } from 'shared/api/filters/getAllFilters';
-import { getAvailableFilters } from 'shared/api/filters/getAvailableFilters';
 import { getCategories } from 'shared/api/categories/getCategories';
 import { filterCategoryNames } from 'shared/lib/filterCategoryNames/filterCategoryNames';
-import { COLORS } from 'shared/constants/colors';
-import { BRAND } from 'shared/constants/brand';
-import { GENDER } from 'shared/constants/gender';
-import { CLOTHING_SIZE } from 'shared/constants/clothingSize';
-import { SHOES_SIZE } from '../../shared/constants/shoesSize';
-import { isEmptyObj } from '../../shared/lib/isEmptyObj/isEmptyObj';
+import { isEmptyObj } from 'shared/lib/isEmptyObj/isEmptyObj';
+import { getAvailableFilters } from './getAvailableFilters';
 
 export const createFilterState = async (selectedFilters) => {
   const filters = isEmptyObj(selectedFilters)

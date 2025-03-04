@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button } from 'shared/ui/Button/Button';
+import { CatalogCard } from 'entities/CatalogCard/CatalogCard';
 import * as cls from './CatalogCardList.module.scss';
-import { CatalogCard } from '../CatalogCard/CatalogCard';
 
 export function CatalogCardList({ className, goodsList, loadMoreGoods }) {
   console.log(goodsList);

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { PageHeader } from 'widgets/PageHeader/PageHeader';
-import Catalog from 'features/catalog/ui/Catalog';
+import { Catalog } from 'widgets/Catalog/';
 import * as cls from './CatalogPage.module.scss';
 
 function CatalogPage({ className }) {

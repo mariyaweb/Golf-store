@@ -1,23 +1,17 @@
 import {
-  useState, useEffect, useMemo, useCallback,
+  useState, useEffect, useCallback, useMemo,
 } from 'react';
-import { Loader } from 'shared/ui/Loader/ui/Loader';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { CatalogCardList } from './CatalogCardList/CatalogCardList';
-import * as cls from './Catalog.module.scss';
-import { CatalogFilters } from './CatalogFilters/CatalogFilters';
-import { getFiltredGoods } from '../services/getFiltredGoods';
-import { extractProductDataFiltered } from '../model/extractProductDataFiltered';
+import { getFiltredGoods } from 'shared/api/products/getFiltredGoods';
+import { extractProductDataFiltered } from './extractProductDataFiltered';
 
-function Catalog() {
+const GOODS_LIMIT = 15;
+
+export function useCatalog() {
   const [goodsLoading, setGoodsLoading] = useState(true);
   const [goods, setGoods] = useState([]);
   const [offset, setOffset] = useState(0);
   const [filters, setFilters] = useState([]);
   const [prevFilters, setPrevFilters] = useState([]);
-  const GOODS_LIMIT = 15;
-
-  console.log(filters);
 
   useEffect(() => {
     console.log('➿ Работает useEffect');
@@ -30,15 +24,8 @@ function Catalog() {
 
       try {
         const newGoods = await getFiltredGoods(GOODS_LIMIT, newOffset, filters);
-
         setGoods(filtersChanged ? newGoods : [...goods, ...newGoods]);
-
-        if (filtersChanged) {
-          setOffset(GOODS_LIMIT);
-        } else {
-          setOffset(newOffset + GOODS_LIMIT);
-        }
-
+        setOffset(filtersChanged ? GOODS_LIMIT : newOffset + GOODS_LIMIT);
         setPrevFilters(filters);
       } catch (error) {
         console.error(error);
@@ -67,16 +54,10 @@ function Catalog() {
 
   const goodsList = useMemo(() => extractProductDataFiltered(goods), [goods]);
   console.log(goodsList);
-  return (
-    <div className={classNames(cls.catalog, {}, [])}>
-      <CatalogFilters setFilters={setFilters} />
-      {goodsLoading && goods.length === 0 ? (
-        <Loader />
-      ) : (
-        <CatalogCardList goodsList={goodsList} loadMoreGoods={loadMoreGoods} />
-      )}
-    </div>
-
-  );
+  return {
+    goodsList,
+    goodsLoading,
+    setFilters,
+    loadMoreGoods,
+  };
 }
-export default Catalog;

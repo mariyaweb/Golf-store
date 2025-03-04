@@ -2,7 +2,6 @@ import { getValueByKey } from 'shared/lib/getValueByKey/getValueByKey';
 import { calculateDiscountPercentage } from './calculateDiscountPercentage';
 
 export const extractProductDataFiltered = (products) => products.map((product) => {
-  // console.log(products);
   const allPrices = product.masterVariant.prices[0];
   const discountPrice = allPrices.discounted;
 

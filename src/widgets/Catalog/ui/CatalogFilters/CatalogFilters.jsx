@@ -1,9 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useState, useEffect } from 'react';
-import { createFilterState } from 'entities/filter/model';
 import { FILTER_ORDER } from 'shared/constants/filterOrder';
-import { FilterOption } from 'widgets/FilterOption/FilterOption';
+import { createFilterState } from 'features/Filters/model/createFilterState';
+
 import { FilterOptionColors } from 'widgets/FilterOptionColors/FilterOptionColors';
+import { FilterOption } from 'widgets/FilterOption/FilterOption';
 import * as cls from './CatalogFilters.module.scss';
 
 export function CatalogFilters({ className, setFilters }) {
