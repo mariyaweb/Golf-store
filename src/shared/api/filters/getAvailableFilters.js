@@ -29,7 +29,15 @@ export async function getAvailableFilters(filters) {
         });
       });
     }
+    console.log(item.masterVariant.prices[0]);
+    if (item.masterVariant.prices[0].discounted) {
+      if ((!attributesList.sale)) {
+        attributesList.sale = new Set();
+      }
+      attributesList.sale.add('true');
+    }
   });
+
   console.log(allGoods);
   console.log(attributesList);
   const handValues = attributesList.hand ? Array.from(attributesList.hand).map((hand) => ({ key: hand, name: hand === 'left' ? 'Left Hand' : 'Right Hand' })) : null;
@@ -41,7 +49,7 @@ export async function getAvailableFilters(filters) {
     hand: attributesList.hand ? { name: 'Hand', values: handValues } : null,
     colors: attributesList.colors ? { name: 'Color', values: Array.from(attributesList.colors).map((item) => ({ key: item, name: COLORS[item] })) } : null,
     newIn: attributesList.New ? { name: 'New in', values: [{ key: 'New', name: 'New' }] } : null,
-    sale: attributesList.Sale ? { name: 'Sale', values: [{ key: 'Sale', name: 'Sale' }] } : null,
+    sale: attributesList.sale ? { name: 'Sale', values: [{ key: 'Sale', name: 'Sale' }] } : null,
   };
   console.log(availableFilters);
   console.log('работает getAvailableFilters');

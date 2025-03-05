@@ -33,6 +33,10 @@ export function useFilters(filters, setFilters) {
         if (key === 'newIn') {
           return 'variants.attributes.New:"true"';
         }
+
+        if (key === 'sale') {
+          return 'categories.id:"6035d86e-a644-4815-869f-f61b4a94ff96","3653e900-cc18-4cad-a897-fb1bf06503c7","b37b04d9-3b40-469d-962b-c4c8b0b1e4f7"';
+        }
         return `variants.attributes.${key}.key:"${activeValues.join('","')}"`;
       })
       .filter(Boolean);
