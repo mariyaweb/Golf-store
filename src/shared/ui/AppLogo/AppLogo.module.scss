@@ -1,0 +1,19 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.logo {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--main-text-dark-color);
+
+  &.light {
+    color: var(--main-text-light-color);
+  }
+
+  &_dot {
+    color: var(--text-medium-color);
+  }
+
+  @include b.tablet {
+    flex-grow: 1;
+  }
+}

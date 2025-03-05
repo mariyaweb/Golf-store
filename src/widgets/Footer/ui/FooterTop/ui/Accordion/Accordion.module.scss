@@ -1,0 +1,30 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+@include b.mobile {
+  .accordion {
+    &__list {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 1.4s ease, opacity 1s ease, padding-top 1.4s ease;
+      opacity: 0;
+    }
+
+    &__arrow {
+      transition: all 0.4s ease;
+    }
+  }
+
+  .open.accordion {
+    .accordion__list {
+      max-height: 400px;
+      padding-top: 40px;
+      opacity: 1;
+      animation: max-height 1.4s ease, opacity 0.8s ease, padding-top 1.4s ease;
+    }
+
+    .accordion__arrow {
+      transform: rotate(180deg);
+      transition: all 0.4s ease;
+    }
+  }
+}

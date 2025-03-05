@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgolf_store=self.webpackChunkgolf_store||[]).push([[463],{463:(e,s,t)=>{t.r(s),t.d(s,{default:()=>u});var r=t(848);const u=function(){return(0,r.jsx)("div",{children:"About Page"})}}}]);

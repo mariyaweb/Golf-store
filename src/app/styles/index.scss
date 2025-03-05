@@ -1,0 +1,67 @@
+@use './reset.scss';
+@use './variables/globals.scss';
+@use './helpers/helpers.scss' as *;
+
+* {
+  font-family: var(--secondary-font-family);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
+a {
+  color: var(--text-main-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--main-font-family);
+  font-weight: 500;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 $desktop-padding;
+  width: 100%;
+  max-width: $desktop;
+
+  @include desktop {
+    max-width: $desktop;
+    padding: 0 $desktop-padding;
+  }
+
+  @include tablet {
+    max-width: $tablet;
+    padding: 0 $tablet-padding;
+  }
+
+  @include mobile-s {
+    max-width: var(--mobile-s);
+  }
+
+  @include mobile {
+    max-width: var(--mobile);
+  }
+
+}
+
+.title {
+  font-size: 40px;
+  letter-spacing: -0.4px;
+}

@@ -1,0 +1,11 @@
+.footer {
+  background-color: var(--main-bg-dark-color);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+}

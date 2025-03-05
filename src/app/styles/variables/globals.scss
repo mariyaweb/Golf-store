@@ -1,17 +1,15 @@
 :root {
-  --font-family-main: consolas, "Times New Roman", serif;
-  --font-size-m: 16px;
-  --font-line-m: 24px;
-  --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
-  --font-size-l: 24px;
-  --font-line-l: 32px;
-  --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-  --font-size-xl: 32px;
-  --font-line-xl: 40px;
-  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+  --main-font-family: 'Poppins', sans-serif;
+  --secondary-font-family: 'Inter', sans-serif;
 
-  /* Размеры */
-  --navbar-height: 50px;
-  --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
+  /* COLLORS */
+  --main-bg-dark-color: #141718;
+  --main-border-medium-color: #c2c2c2;
+  --main-hovered-dark-color: #242c2e;
+  --main-bg-light-color: #FFF;
+  --main-text-dark-color: #141718;
+  --main-text-light-color: #FEFEFE;
+  --text-medium-color: #6C7275;
+  --accent-bg-color: #38CB89;
+  --accent-bg-hover-color: #3cf5a2;
 }

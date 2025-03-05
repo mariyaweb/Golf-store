@@ -1,0 +1,22 @@
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--main-text-light-color);
+
+  &__list {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__item {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__divider {
+    display: block;
+  }
+
+  &__current {
+    font-weight: 300;
+  }
+}
