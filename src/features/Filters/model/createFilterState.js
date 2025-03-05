@@ -4,28 +4,28 @@ import { filterCategoryNames } from 'shared/lib/filterCategoryNames/filterCatego
 import { isEmptyObj } from 'shared/lib/isEmptyObj/isEmptyObj';
 import { getAvailableFilters } from 'shared/api/filters/getAvailableFilters';
 
-export const createFilterState = async (selectedFilters) => {
-  const filters = isEmptyObj(selectedFilters)
+export const createFilterState = async (filters, selectedFilters) => {
+  const filtersSelected = isEmptyObj(selectedFilters)
     ? await getAllFilters()
-    : await getAvailableFilters();
+    : await getAvailableFilters(filters);
   const categories = await getCategories();
   const filtredCategories = filterCategoryNames(categories);
   console.log('createFilterState');
   console.log(categories);
-  console.log(filters);
+  console.log(filtersSelected);
 
   return {
-    gender: filters.gender || null,
+    gender: filtersSelected.gender || null,
     category: {
       name: 'Category',
       values: filtredCategories.map((category) => ({ key: category.id, name: category.name })),
     },
-    brand: filters.brand || null,
-    'clothing-sizes': filters['clothing-sizes'] || null,
-    'shoes-sizes': filters['shoes-sizes'] || null,
-    hand: filters.hand || null,
-    colors: filters.colors || null,
-    newIn: filters.newIn || null,
-    sale: filters.sale || null,
+    brand: filtersSelected.brand || null,
+    'clothing-sizes': filtersSelected['clothing-sizes'] || null,
+    'shoes-sizes': filtersSelected['shoes-sizes'] || null,
+    hand: filtersSelected.hand || null,
+    colors: filtersSelected.colors || null,
+    newIn: filtersSelected.newIn || null,
+    sale: filtersSelected.sale || null,
   };
 };

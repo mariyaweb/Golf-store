@@ -9,16 +9,20 @@ import { useCatalog } from '../../model/useCatalog';
 
 export function Catalog() {
   const {
-    goodsList, goodsLoading, setFilters, loadMoreGoods,
+    goodsList, goodsLoading, lengthNewGoods, filters, setFilters, loadMoreGoods,
   } = useCatalog();
 
   return (
     <div className={classNames(cls.catalog, {}, [])}>
-      <CatalogFilters setFilters={setFilters} />
+      <CatalogFilters setFilters={setFilters} filters={filters} />
       {goodsLoading && goodsList.length === 0 ? (
         <Loader />
       ) : (
-        <CatalogCardList goodsList={goodsList} loadMoreGoods={loadMoreGoods} />
+        <CatalogCardList
+          goodsList={goodsList}
+          lengthNewGoods={lengthNewGoods}
+          loadMoreGoods={loadMoreGoods}
+        />
       )}
     </div>
   );

@@ -12,6 +12,7 @@ export function useCatalog() {
   const [offset, setOffset] = useState(0);
   const [filters, setFilters] = useState([]);
   const [prevFilters, setPrevFilters] = useState([]);
+  const [lengthNewGoods, setLengthNewGoods] = useState(0);
 
   useEffect(() => {
     console.log('➿ Работает useEffect');
@@ -24,6 +25,7 @@ export function useCatalog() {
 
       try {
         const newGoods = await getFiltredGoods(GOODS_LIMIT, newOffset, filters);
+        setLengthNewGoods(newGoods.length);
         setGoods(filtersChanged ? newGoods : [...goods, ...newGoods]);
         setOffset(filtersChanged ? GOODS_LIMIT : newOffset + GOODS_LIMIT);
         setPrevFilters(filters);
@@ -43,6 +45,7 @@ export function useCatalog() {
     console.log('🟣 Работает loadMoreGoods');
     try {
       const newGoods = await getFiltredGoods(GOODS_LIMIT, offset, filters);
+      setLengthNewGoods(newGoods.length);
       setGoods((prev) => [...prev, ...newGoods]);
       setOffset((prevOffset) => prevOffset + GOODS_LIMIT);
     } catch (error) {
@@ -54,9 +57,14 @@ export function useCatalog() {
 
   const goodsList = useMemo(() => extractProductDataFiltered(goods), [goods]);
   console.log(goodsList);
+
+  console.log('🔴useCatalog:');
+  console.log(filters);
   return {
     goodsList,
     goodsLoading,
+    lengthNewGoods,
+    filters,
     setFilters,
     loadMoreGoods,
   };

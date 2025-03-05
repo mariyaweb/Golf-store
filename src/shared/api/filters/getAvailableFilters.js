@@ -5,8 +5,8 @@ import { SHOES_SIZE } from 'shared/constants/shoesSize';
 import { CLOTHING_SIZE } from 'shared/constants/clothingSize';
 import { COLORS } from 'shared/constants/colors';
 
-export async function getAvailableFilters() {
-  const allGoods = await getFiltredGoods(500, 0);
+export async function getAvailableFilters(filters) {
+  const allGoods = await getFiltredGoods(500, 0, filters);
   const attributesList = {};
   allGoods.forEach((item) => {
     item.masterVariant.attributes.forEach((attribute) => {
@@ -40,5 +40,6 @@ export async function getAvailableFilters() {
     sale: attributesList.Sale ? { name: 'Sale', values: [{ key: 'Sale', name: 'Sale' }] } : null,
   };
   console.log(availableFilters);
+  console.log('работает getAvailableFilters');
   return availableFilters;
 }

@@ -6,12 +6,12 @@ import { FilterOptionColors } from '../FilterOptionColors/FilterOptionColors';
 import { FilterOption } from '../FilterOption/FilterOption';
 import { useFilters } from '../../model/useFilters';
 
-export function CatalogFilters({ className, setFilters }) {
+export function CatalogFilters({ className, filters, setFilters }) {
   const {
     availableFilters,
     selectedFilters,
     updatePageFilter,
-  } = useFilters(setFilters);
+  } = useFilters(filters, setFilters);
 
   return (
     <div className={classNames(cls.catalogFilters, {}, [className])}>

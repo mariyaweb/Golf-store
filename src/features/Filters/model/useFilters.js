@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { createFilterState } from 'features/Filters/model/createFilterState';
 
-export function useFilters(setFilters) {
+export function useFilters(filters, setFilters) {
   const [availableFilters, setAvailableFilters] = useState();
   const [selectedFilters, setSelectedFilters] = useState({});
 
   useEffect(() => {
     const loadFilters = async () => {
       try {
-        const filtersData = await createFilterState(selectedFilters);
+        const filtersData = await createFilterState(filters, selectedFilters);
         setAvailableFilters(filtersData);
       } catch (error) {
         console.error('Error fetching filters:', error);
@@ -16,15 +16,18 @@ export function useFilters(setFilters) {
     };
 
     loadFilters();
-  }, []);
+  }, [selectedFilters]);
 
   useEffect(() => {
+    console.log(selectedFilters);
     const filterArr = Object.entries(selectedFilters)
       .map(([key, values]) => {
         const activeValues = Object.keys(values).filter((value) => values[value]);
         if (activeValues.length === 0) return null;
+
         if (key === 'category') {
-          return activeValues.map((id) => `categories.id:"${id}"`).join(',');
+          const idStr = activeValues.map((id) => `"${id}"`).join(',');
+          return `categories.id:${idStr}`;
         }
         return `variants.attributes.${key}.key:"${activeValues.join('","')}"`;
       })
