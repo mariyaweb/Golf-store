@@ -13,7 +13,9 @@ export async function getAvailableFilters(filters) {
       if ((!attributesList[attribute.name] && (attribute.name !== 'New')) || (!attributesList[attribute.name] && (attribute.name === 'New' && attribute.value))) {
         attributesList[attribute.name] = new Set();
       }
-      if (attribute.name !== 'New' || (attribute.name === 'New' && attribute.value)) attributesList[attribute.name].add(attribute.value.key);
+      if (attribute.name !== 'New' || (attribute.name === 'New' && attribute.value)) {
+        attributesList[attribute.name].add(attribute.value.key);
+      }
     });
     if (item.variants.length > 0) {
       item.variants.forEach((variant) => {
@@ -21,7 +23,9 @@ export async function getAvailableFilters(filters) {
           if ((!attributesList[attribute.name] && (attribute.name !== 'New')) || (!attributesList[attribute.name] && (attribute.name === 'New' && attribute.value))) {
             attributesList[attribute.name] = new Set();
           }
-          if (attribute.name !== 'New' || (attribute.name === 'New' && attribute.value)) attributesList[attribute.name].add(attribute.value.key);
+          if (attribute.name !== 'New' || (attribute.name === 'New' && attribute.value)) {
+            attributesList[attribute.name].add(attribute.value.key);
+          }
         });
       });
     }

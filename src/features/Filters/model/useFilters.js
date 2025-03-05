@@ -16,7 +16,7 @@ export function useFilters(filters, setFilters) {
     };
 
     loadFilters();
-  }, [selectedFilters]);
+  }, [filters]);
 
   useEffect(() => {
     console.log(selectedFilters);
@@ -28,6 +28,10 @@ export function useFilters(filters, setFilters) {
         if (key === 'category') {
           const idStr = activeValues.map((id) => `"${id}"`).join(',');
           return `categories.id:${idStr}`;
+        }
+
+        if (key === 'newIn') {
+          return 'variants.attributes.New:"true"';
         }
         return `variants.attributes.${key}.key:"${activeValues.join('","')}"`;
       })
