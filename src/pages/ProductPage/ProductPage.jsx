@@ -15,7 +15,7 @@ function ProductPage() {
 
   return (
     <div className={classNames(cls.productPage, {}, ['wrapper'])}>
-      <Breadcrumbs name="test name" className={cls.productPage__breadcrumbs} />
+      <Breadcrumbs name={product?.name || 'Product'} className={cls.productPage__breadcrumbs} />
       <div className={cls.productPage__product}>
         <ProductGallery product={product} variantId={variantId} />
         <ProductInfo product={product} />
