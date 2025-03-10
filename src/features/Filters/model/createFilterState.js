@@ -10,9 +10,6 @@ export const createFilterState = async (filters, selectedFilters) => {
     : await getAvailableFilters(filters);
   const categories = await getCategories();
   const filtredCategories = filterCategoryNames(categories);
-  console.log('createFilterState');
-  console.log(categories);
-  console.log(filtersSelected);
 
   return {
     gender: filtersSelected.gender || null,

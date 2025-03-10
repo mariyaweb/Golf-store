@@ -1,0 +1,14 @@
+.productPage {
+  display: block;
+
+  &__breadcrumbs {
+    color: var(--main-text-dark-color);
+  }
+
+  &__product {
+    display: flex;
+    gap: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

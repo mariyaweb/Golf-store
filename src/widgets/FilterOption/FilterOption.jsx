@@ -35,7 +35,6 @@ export function FilterOption({
         >
           {optionList.map((item) => {
             const isChecked = selectedValues?.[categoryKey]?.[item.key] || false;
-            console.log(`🔹 ${item.value}: ${isChecked}`);
             return (
               <li key={`${item.key}-list`} className={cls.filterOption__item}>
                 <label htmlFor={item.key}>{item.name}</label>

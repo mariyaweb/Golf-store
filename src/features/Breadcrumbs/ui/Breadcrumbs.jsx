@@ -3,7 +3,7 @@ import { useBreadcrumbs } from 'shared/lib/hooks/useBreadcrumbs';
 import { classNames } from 'shared/lib/classNames/classNames';
 import * as cls from './Breadcrumbs.module.scss';
 
-export function Breadcrumbs({ className }) {
+export function Breadcrumbs({ className, name = null }) {
   const breadcrumbs = useBreadcrumbs();
 
   return (
@@ -14,7 +14,11 @@ export function Breadcrumbs({ className }) {
             {index > 0 && <span className={cls.breadcrumbs__divider}>&gt;</span>}
             {
             crumbs.length - 1 === index
-              ? <div className={cls.breadcrumbs__current}>{crumb.name}</div>
+              ? (
+                <div className={cls.breadcrumbs__current}>
+                  { name || crumb.name}
+                </div>
+              )
               : <Link to={crumb.path}>{crumb.name}</Link>
             }
           </li>

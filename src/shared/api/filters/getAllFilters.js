@@ -36,6 +36,4 @@ export async function getAllFilters() {
     newIn: { name: 'New in', values: [{ key: 'New', name: 'New' }] },
     sale: { name: 'Sale', values: [{ key: 'Sale', name: 'Sale' }] },
   };
-  // console.log(response.body.facets);
-  // return response.body.facets;
 }

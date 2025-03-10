@@ -13,8 +13,6 @@ export function CatalogFilters({ className, filters, setFilters }) {
     updatePageFilter,
   } = useFilters(filters, setFilters);
 
-  console.log(availableFilters);
-
   return (
     <div className={classNames(cls.catalogFilters, {}, [className])}>
       <h2 className={cls.catalogFilters__title}>Filter</h2>

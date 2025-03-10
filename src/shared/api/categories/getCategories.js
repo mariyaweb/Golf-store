@@ -5,7 +5,5 @@ export async function getCategories() {
     .categories()
     .get()
     .execute();
-  console.log('category:');
-  console.log(response.body.results);
   return response.body.results;
 }
