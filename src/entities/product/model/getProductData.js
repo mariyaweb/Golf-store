@@ -10,7 +10,10 @@ export function getProductData(product) {
   const productVariants = getProductVariants(stagedData);
 
   const masterImgs = masterVariant.images.map((img) => img.url);
-  const variantsImages = variants.map((variant) => [...variant.images.map((img) => img.url)]);
+  const variantsImages = variants
+    .map((variant) => (variant.images.length > 0 ? variant.images.map((img) => img.url) : null))
+    .filter(Boolean);
+
   const allImages = [masterImgs, ...variantsImages];
 
   const brand = getValueByKey(masterVariantAttributes, 'brand').label || null;

@@ -9,7 +9,7 @@ import * as cls from './ProductPage.module.scss';
 function ProductPage() {
   const { productId } = useParams();
   const {
-    product, variantId, loading, error,
+    product, variantId, setVariantId, loading, error,
   } = useProduct(productId);
   console.log(product);
 
@@ -18,7 +18,7 @@ function ProductPage() {
       <Breadcrumbs name={product?.name || 'Product'} className={cls.productPage__breadcrumbs} />
       <div className={cls.productPage__product}>
         <ProductGallery product={product} variantId={variantId} />
-        <ProductInfo product={product} />
+        <ProductInfo product={product} setVariantId={setVariantId} />
       </div>
     </div>
   );

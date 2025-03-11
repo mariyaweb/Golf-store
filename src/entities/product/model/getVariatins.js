@@ -6,7 +6,6 @@ const getVariants = (variants) => variants.reduce((acc, variant) => {
       if (!acc[name]) {
         acc[name] = new Set();
       }
-
       if (Array.isArray(value)) {
         value.forEach((item) => {
           if (typeof item === 'string') {

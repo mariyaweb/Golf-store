@@ -13,11 +13,13 @@
 
   &__currentPrice {
     font-size: 28px;
+    font-family: var(--main-font-family);
     font-weight: 600;
   }
 
   &__oldPrice {
     font-size: 20px;
+    font-family: var(--main-font-family);
     color: var(--text-medium-color);
     text-decoration: line-through;
     font-weight: 400;
