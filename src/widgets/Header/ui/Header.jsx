@@ -34,7 +34,7 @@ export function Header() {
           <div className={classNames(cls.header__account, {}, [])}><AccountIcon /></div>
           <div className={classNames(cls.header__cart, {}, [])}>
             <CartIcon />
-            <span className={classNames(cls.cart__counter, {}, [])}>245</span>
+            <span className={classNames(cls.cart__counter, {}, [])}>0</span>
           </div>
         </div>
         <Burger onToggleMenu={onToggleMenu} isOpen={isOpen} />
