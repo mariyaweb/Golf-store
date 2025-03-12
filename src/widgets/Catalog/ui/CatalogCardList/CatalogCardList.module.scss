@@ -1,9 +1,15 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
 .goods {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 20px;
   transition: all 0.4s ease-in-out;
+
+  @include b.tablet {
+    gap: 10px;
+  }
 
   &__showMore {
     margin: auto;

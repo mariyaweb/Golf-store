@@ -1,9 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AddToCart } from 'features/AddToCart/AddToCart';
+import { ProductCounter } from 'widgets/ProductCounter/ProductCounter';
 import { ProductPrice } from '../ProductPrice/ProductPrice';
 import { ProductVariations } from '../ProductVariations/ProductVariations';
 import * as cls from './ProductInfo.module.scss';
-import { ProductCounter } from '../ProductCounter/ProductCounter';
+
 import { TotalPrice } from '../TotalPrice/TotalPrice';
 import { ProductHeader } from '../ProductHeader/ProductHeader';
 

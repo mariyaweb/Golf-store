@@ -1,3 +1,5 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
 .catalogCard {
   position: relative;
   display: flex;
@@ -9,6 +11,16 @@
   border: 1px solid #F9F9F9;
   background-color: #fcfcfc;
   border-radius: 4px;
+
+  @include b.tablet {
+    min-width: 200px;
+    max-width: 45%;
+  }
+
+  @media (max-width: 500px) {
+    min-width: 180px;
+    max-width: 100%;
+  }
 
   &:hover {
     box-shadow: 0 13px 25px -2px rgb(34 60 80 / 8%);

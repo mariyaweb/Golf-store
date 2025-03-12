@@ -1,14 +1,20 @@
 .productCounter {
   display: flex;
   align-items: center;
-  gap: 10px;
   background-color: #eeeeee;
   border-radius: 8px;
   overflow: hidden;
 
   &__btn {
-    width: 40px;
-    height: 40px;
+    &.size_m {
+      width: 40px;
+      height: 40px;
+    }
+
+    &.size_s {
+      width: 25px;
+      height: 25px;
+    }
 
     &.disabled {
       cursor: not-allowed;
@@ -16,8 +22,16 @@
   }
 
   &__value {
-    width: 40px;
     margin: 0 auto;
     text-align: center;
+
+    &.size_m {
+      width: 40px;
+    }
+
+    &.size_s {
+      width: 25px;
+      font-size: 12px;
+    }
   }
 }

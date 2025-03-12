@@ -1,9 +1,20 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import * as cls from './ProductCounter.module.scss';
 
-export function ProductCounter({ count, setCount }) {
+export const CounterSize = {
+  S: 'size_s',
+  M: 'size_m',
+};
+
+export function ProductCounter(props) {
   const min = 1;
   const max = 500;
+  const {
+    count,
+    setCount,
+    className,
+    size = CounterSize.M,
+  } = props;
 
   const decr = () => {
     if (count > min) {
@@ -20,24 +31,24 @@ export function ProductCounter({ count, setCount }) {
   };
 
   return (
-    <div className={classNames(cls.productCounter, {}, [])}>
+    <div className={classNames(cls.productCounter, {}, [className])}>
       <button
         className={classNames(
           cls.productCounter__btn,
           { [cls.disabled]: count === min },
-          [],
+          [cls[size]],
         )}
         onClick={decr}
         type="button"
       >
         -
       </button>
-      <div className={cls.productCounter__value}>{count}</div>
+      <div className={classNames(cls.productCounter__value, {}, [cls[size]])}>{count}</div>
       <button
         className={classNames(
           cls.productCounter__btn,
           { [cls.disabled]: count === max },
-          [],
+          [cls[size]],
         )}
         onClick={incr}
         type="button"
