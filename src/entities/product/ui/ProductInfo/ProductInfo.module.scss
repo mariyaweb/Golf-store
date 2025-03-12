@@ -16,4 +16,11 @@
     font-weight: 400;
     margin-bottom: 24px;
   }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
 }

@@ -7,6 +7,7 @@ export const useProduct = (id) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [variantId, setVariantId] = useState(0);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     setLoading(true);
@@ -26,6 +27,6 @@ export const useProduct = (id) => {
   }, [id]);
 
   return {
-    product, variantId, setVariantId, loading, error,
+    product, variantId, setVariantId, loading, error, count, setCount,
   };
 };
