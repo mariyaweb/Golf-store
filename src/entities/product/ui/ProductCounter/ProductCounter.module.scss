@@ -4,6 +4,7 @@
   gap: 10px;
   background-color: #eeeeee;
   border-radius: 8px;
+  overflow: hidden;
 
   &__btn {
     width: 40px;
@@ -12,5 +13,11 @@
     &.disabled {
       cursor: not-allowed;
     }
+  }
+
+  &__value {
+    width: 40px;
+    margin: 0 auto;
+    text-align: center;
   }
 }

@@ -3,10 +3,12 @@ import {
   useState, useMemo, useEffect, useRef,
 } from 'react';
 import * as cls from './ProductGallery.module.scss';
+import { ProductHeader } from '../ProductHeader/ProductHeader';
 
 export function ProductGallery({ product, variantId }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const thumbnailRef = useRef(null);
+  const { brand, name } = product;
 
   const images = useMemo(() => {
     if (!product) return [];
@@ -37,17 +39,22 @@ export function ProductGallery({ product, variantId }) {
 
   return (
     <div className={classNames(cls.productGallery, {}, [])}>
-      <div className={cls.labels}>
-        {product.isNew && <span className={[cls.labelNew]}>NEW</span>}
-        {product.discount && (
-        <span className={cls.labelSale}>
-          {product.discount}
-          %
-        </span>
-        )}
-      </div>
+      <ProductHeader
+        className={cls.productGallery__header}
+        brand={brand}
+        name={name}
+      />
 
       <div className={cls.mainImageContainer}>
+        <div className={cls.labels}>
+          {product.isNew && <span className={[cls.labelNew]}>NEW</span>}
+          {product.discount && (
+          <span className={cls.labelSale}>
+            {product.discount}
+            %
+          </span>
+          )}
+        </div>
         <img
           className={cls.mainImage}
           src={images[currentIndex]}

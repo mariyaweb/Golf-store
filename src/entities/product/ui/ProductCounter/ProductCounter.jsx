@@ -32,7 +32,7 @@ export function ProductCounter({ count, setCount }) {
       >
         -
       </button>
-      <div>{count}</div>
+      <div className={cls.productCounter__value}>{count}</div>
       <button
         className={classNames(
           cls.productCounter__btn,

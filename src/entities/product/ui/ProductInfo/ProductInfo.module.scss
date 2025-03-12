@@ -1,12 +1,13 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
 .productInfo {
   display: flex;
   flex-direction: column;
 
-  &__title {
-    font-size: 44px;
-    line-height: 130%;
-    letter-spacing: -0.4px;
-    margin-bottom: 16px;
+  &__header {
+    @include b.tablet {
+      display: none;
+    }
   }
 
   &__description {

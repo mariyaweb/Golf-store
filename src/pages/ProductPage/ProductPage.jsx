@@ -14,10 +14,10 @@ function ProductPage() {
   console.log(product);
 
   return (
-    <div className={classNames(cls.productPage, {}, ['wrapper'])}>
+    <div className={classNames('', {}, ['wrapper'])}>
       <Breadcrumbs name={product?.name || 'Product'} className={cls.productPage__breadcrumbs} />
       <div className={cls.productPage__product}>
-        <ProductGallery product={product} variantId={variantId} />
+        {product && <ProductGallery product={product} variantId={variantId} />}
         <ProductInfo
           product={product}
           setVariantId={setVariantId}
