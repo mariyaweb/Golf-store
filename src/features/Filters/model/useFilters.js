@@ -19,7 +19,6 @@ export function useFilters(filters, setFilters) {
   }, [filters]);
 
   useEffect(() => {
-    console.log(selectedFilters);
     const filterArr = Object.entries(selectedFilters)
       .map(([key, values]) => {
         const activeValues = Object.keys(values).filter((value) => values[value]);
@@ -53,9 +52,6 @@ export function useFilters(filters, setFilters) {
       },
     }));
   };
-
-  console.log('🟢 фильтры:', availableFilters);
-  console.log('🟢 Текущее состояние фильтров:', selectedFilters);
 
   return {
     availableFilters,

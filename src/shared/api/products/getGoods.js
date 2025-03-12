@@ -8,7 +8,6 @@ export const getGoods = async (limitValue = 30, offsetValue = 0) => {
     if (!response || !response.body || !response.body.results) {
       throw new Error('API вернул некорректный ответ');
     }
-    console.log(response.body.results);
     return response.body.results;
   } catch (error) {
     console.error('Ошибка в getGoods:', error);

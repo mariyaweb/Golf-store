@@ -1,0 +1,21 @@
+.productVariations {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    margin-top: 24px;
+  }
+
+  &__title {
+    font-size: 16px;
+    color: var(--text-medium-color);
+    font-weight: 600;
+    padding-bottom: 8px;
+  }
+
+  &__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}

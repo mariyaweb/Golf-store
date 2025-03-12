@@ -15,7 +15,6 @@ export function useCatalog() {
   const [lengthNewGoods, setLengthNewGoods] = useState(0);
 
   useEffect(() => {
-    console.log('➿ Работает useEffect');
     const fetchGoods = async () => {
       setGoodsLoading(true);
 
@@ -42,7 +41,6 @@ export function useCatalog() {
   const loadMoreGoods = useCallback(async () => {
     if (goodsLoading) return;
     setGoodsLoading(true);
-    console.log('🟣 Работает loadMoreGoods');
     try {
       const newGoods = await getFiltredGoods(GOODS_LIMIT, offset, filters);
       setLengthNewGoods(newGoods.length);
@@ -56,10 +54,7 @@ export function useCatalog() {
   }, [offset, filters, goodsLoading]);
 
   const goodsList = useMemo(() => extractProductDataFiltered(goods), [goods]);
-  console.log(goodsList);
 
-  console.log('🔴useCatalog:');
-  console.log(filters);
   return {
     goodsList,
     goodsLoading,

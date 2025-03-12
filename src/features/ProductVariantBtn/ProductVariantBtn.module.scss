@@ -1,0 +1,13 @@
+.variationBtn {
+  min-width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 2px;
+  background: #eeeeee;
+  border: 1px solid #eeeeee;
+
+  &.selected {
+    border: 1px solid #949494;
+    border: 1px solid var(--accent-bg-color);
+  }
+}

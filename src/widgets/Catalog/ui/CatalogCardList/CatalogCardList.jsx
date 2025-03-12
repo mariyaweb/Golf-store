@@ -6,8 +6,6 @@ import { CatalogCard } from '../CatalogCard/CatalogCard';
 export function CatalogCardList({
   className, goodsList, loadMoreGoods, lengthNewGoods,
 }) {
-  console.log(goodsList);
-  console.log(lengthNewGoods);
   return (
     <div className={classNames(cls.goods, {}, [className, 'goods__wrapper'])}>
       {goodsList.map((product) => (
