@@ -1,0 +1,19 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.contactsTitle {
+  font-size: 54px;
+  max-width: 840px;
+  line-height: 54px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @include b.tablet {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+.contactsSubTitle {
+  max-width: 840px;
+  margin-bottom: 50px;
+}
