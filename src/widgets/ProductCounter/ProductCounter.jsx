@@ -1,4 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useDispatch } from 'react-redux';
+import { useIsProductInCart } from 'features/Cart/lib/useIsProductInCart';
+import { updateQuantity } from 'shared/store/cartSlice';
 import * as cls from './ProductCounter.module.scss';
 
 export const CounterSize = {
@@ -7,26 +10,39 @@ export const CounterSize = {
 };
 
 export function ProductCounter(props) {
+  const dispatch = useDispatch();
   const min = 1;
   const max = 500;
+
   const {
+    productId,
     count,
     setCount,
     className,
     size = CounterSize.M,
   } = props;
 
+  const productInCart = useIsProductInCart(productId);
+
   const decr = () => {
     if (count > min) {
-      const newValue = count - 1;
-      setCount(newValue);
+      if (productInCart) {
+        dispatch(updateQuantity({ productId, quantity: count - 1 }));
+      } else {
+        const newValue = count - 1;
+        setCount(newValue);
+      }
     }
   };
 
   const incr = () => {
     if (count < max) {
-      const newValue = count + 1;
-      setCount(newValue);
+      if (productInCart) {
+        dispatch(updateQuantity({ productId, quantity: count + 1 }));
+      } else {
+        const newValue = count + 1;
+        setCount(newValue);
+      }
     }
   };
 

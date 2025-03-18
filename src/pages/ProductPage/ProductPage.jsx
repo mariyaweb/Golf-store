@@ -10,9 +10,16 @@ import { Loader } from '../../shared/ui/Loader/ui/Loader';
 function ProductPage() {
   const { productId } = useParams();
   const {
-    product, variantId, setVariantId, loading, count, setCount,
+    product,
+    variantId,
+    setVariantId,
+    loading,
+    count,
+    setCount,
+    selectedProductAttributes,
+    setSelectedProductAttributes,
+    selectedProductId,
   } = useProduct(productId);
-  console.log(product);
 
   return (
     <div className={classNames('', {}, ['wrapper'])}>
@@ -22,9 +29,13 @@ function ProductPage() {
         {loading ? <Loader /> : (
           <ProductInfo
             product={product}
+            variantId={variantId}
             setVariantId={setVariantId}
             count={count}
             setCount={setCount}
+            selectedProductAttributes={selectedProductAttributes}
+            setSelectedProductAttributes={setSelectedProductAttributes}
+            selectedProductId={selectedProductId}
           />
         )}
       </div>

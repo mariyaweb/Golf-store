@@ -9,9 +9,9 @@ const VARIATION_LABELS = {
   colors: 'Colors',
   hand: 'Hand',
 };
-export function ProductVariations({ variations, setVariantId }) {
-  const [selectedVariants, setSelectedVariants] = useState({});
-
+export function ProductVariations({
+  variations, setVariantId, selectedProductAttributes, setSelectedProductAttributes,
+}) {
   useEffect(() => {
     const baseVariants = Object.entries(variations).reduce((acc, [key, values]) => {
       if (Array.isArray(values) && values.length > 0) {
@@ -20,11 +20,11 @@ export function ProductVariations({ variations, setVariantId }) {
       }
       return acc;
     }, {});
-    setSelectedVariants(baseVariants);
+    setSelectedProductAttributes(baseVariants);
   }, [variations]);
 
   const onSelect = (key, value, variantIndex) => {
-    setSelectedVariants((prev) => ({ ...prev, [key]: value }));
+    setSelectedProductAttributes((prev) => ({ ...prev, [key]: value }));
 
     if (key === 'colors') {
       setVariantId(variantIndex);
@@ -45,7 +45,7 @@ export function ProductVariations({ variations, setVariantId }) {
                   key={value}
                   value={value}
                   isColors={isColors}
-                  isSelected={selectedVariants[key] === value}
+                  isSelected={selectedProductAttributes[key] === value}
                   onSelect={() => onSelect(key, value, variantIndex)}
                 />
               ))}

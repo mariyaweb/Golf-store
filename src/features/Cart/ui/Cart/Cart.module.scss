@@ -5,7 +5,7 @@
   flex-direction: column;
   position: fixed;
   background-color: var(--main-bg-light-color);
-  box-shadow: 2px 4px 10px rgba(87, 87, 87, 0.1);
+  box-shadow: 2px 4px 10px rgb(87 87 87 / 10%);
   top: 0;
   right: -100%;
   padding-top: 40px;
@@ -21,8 +21,12 @@
   }
 
   &.open {
-    animation: showCart 1.5s;
+    animation: showCartDesktop 1.5s;
     right: 0;
+
+    @include b.tablet {
+      animation: showCartTablet 1.5s;
+    }
   }
 
   &__header {
@@ -38,7 +42,7 @@
     padding: 30px 0;
     font-size: 20px;
     font-weight: 600;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #eee;
   }
 
   &__btn {
@@ -53,14 +57,23 @@
   }
 }
 
-@keyframes showCart {
+@keyframes showCartDesktop {
   0% {
     left: 100%;
   }
 
+  100% {
+    left: 20%;
+  }
+}
+
+@keyframes showCartTablet {
+  0% {
+    left: 100%;
+  }
 
   100% {
-    right: 0;
+    left: 0;
   }
 }
 

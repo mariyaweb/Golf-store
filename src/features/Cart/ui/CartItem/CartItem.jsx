@@ -1,12 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ProductCounter, CounterSize } from 'widgets/ProductCounter/ProductCounter';
 import { CloseBtn } from 'shared/ui/CloseBtn/CloseBtn';
+import { useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCart } from 'shared/store/cartSlice';
 import * as cls from './CartItem.module.scss';
 
+const AVAILABLE_ATTRIBUTES = {
+  'clothing-sizes': 'Clothing Size',
+  colors: 'Color',
+  hand: 'Hand',
+  'shoes-sizes': 'Shoes Size',
+};
 export function CartItem({ className, item }) {
-  const removeFromCart = () => {
-    console.log('remove');
-  };
+  const dispatch = useDispatch();
+
+  const attributesArray = useMemo(() => Object.entries(item.attributes), [item.attributes]);
+  const totalProductPrice = useSelector(
+    (state) => state.cart.items[item.id]?.totalProductPrice,
+  )?.toFixed(2) || item.totalProductPrice.toFixed(2);
   return (
     <div className={classNames(cls.cartItem, {}, [className])}>
       <div className={cls.cartItem__imgContainer}>
@@ -15,16 +27,22 @@ export function CartItem({ className, item }) {
       <div className={cls.cartItem__info}>
         <h4 className={cls.title}>{item.name}</h4>
         <div className={cls.cartItem__attributes}>
-          {item.attributes.map((attribute) => {
-            console.log(attribute);
-            return <p className={cls.text}>{`${attribute.name}: ${attribute.value}`}</p>;
-          })}
+          {attributesArray.map(([key, value]) => (
+            <p className={cls.text} key={`${item.name}-${key}`}>
+              {`${AVAILABLE_ATTRIBUTES[key]}: ${value}`}
+            </p>
+          ))}
         </div>
-        <ProductCounter count={item.count} className={cls.cartItem__count} size={CounterSize.S} />
+        <ProductCounter
+          productId={item.id}
+          count={item.quantity}
+          className={cls.cartItem__count}
+          size={CounterSize.S}
+        />
       </div>
       <div className={`${cls.cartItem__info} ${cls.cartItem__price}`}>
-        <h4 className={cls.title}>{`${item.totalPrice}$`}</h4>
-        <CloseBtn handleClick={removeFromCart} />
+        <h4 className={cls.title}>{`${totalProductPrice}$`}</h4>
+        <CloseBtn handleClick={() => dispatch(removeFromCart({ id: item.id }))} />
       </div>
     </div>
   );

@@ -5,4 +5,3 @@ export function classNames(cls, mods, additional) {
     ...Object.entries(mods).filter(([_, value]) => Boolean(value)).map(([className]) => className)]
     .join(' ');
 }
-
