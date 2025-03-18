@@ -5,9 +5,3 @@ export function classNames(cls, mods, additional) {
     ...Object.entries(mods).filter(([_, value]) => Boolean(value)).map(([className]) => className)]
     .join(' ');
 }
-
-// Example
-// Use classNames:
-// <div className={classNames('app', {hovered: true, selected: true}, [theme])}>
-// Get string:
-// 'app dark hovered selected'

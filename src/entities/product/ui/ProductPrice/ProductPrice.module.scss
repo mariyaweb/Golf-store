@@ -1,0 +1,27 @@
+.productPrice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &__prices {
+    display: flex;
+    gap: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__currentPrice {
+    font-size: 28px;
+    font-family: var(--main-font-family);
+    font-weight: 600;
+  }
+
+  &__oldPrice {
+    font-size: 20px;
+    font-family: var(--main-font-family);
+    color: var(--text-medium-color);
+    text-decoration: line-through;
+    font-weight: 400;
+  }
+}

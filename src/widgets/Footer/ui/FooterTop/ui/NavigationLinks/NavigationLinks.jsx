@@ -1,8 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Button } from 'shared/ui/Button/Button';
-import ArrowIcon from 'widgets/assets/icons/dropdown-arrow-white.svg';
-import { useState } from 'react';
 import * as cls from './NavigationLinks.module.scss';
 import { Accordion } from '../Accordion/Accordion';
 

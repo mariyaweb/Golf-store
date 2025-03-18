@@ -1,0 +1,35 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    @include b.tablet {
+      display: none;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+    color: var(--text-medium-color);
+    line-height: 150%;
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+
+  &__addedBtn {
+    font-size: 18px;
+    margin-top: 40px;
+    padding: 10px 40px;
+    border-radius: 8px;
+    cursor: default;
+
+  }
+}

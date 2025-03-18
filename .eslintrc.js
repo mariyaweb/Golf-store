@@ -32,5 +32,12 @@ module.exports = {
     'no-restricted-globals': 'warn',
     'react/self-closing-comp': 'off',
     'no-shadow': 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
+    ],
   },
 };

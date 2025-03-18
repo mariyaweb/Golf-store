@@ -24,6 +24,7 @@
     "@svgr/webpack": "^8.1.0",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "dotenv-webpack": "^8.1.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.31.0",
@@ -43,8 +44,12 @@
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
+    "@commercetools/platform-sdk": "^8.1.0",
+    "@commercetools/sdk-client-v2": "^3.0.0",
+    "@reduxjs/toolkit": "^2.6.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.1.1",
     "uuid": "^11.0.5"
   }

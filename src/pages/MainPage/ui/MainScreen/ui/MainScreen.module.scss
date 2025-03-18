@@ -5,15 +5,15 @@
   height: 100%;
 
   @include b.laptop {
-    background: url('widgets/assets/img/main.png') -440px 0px/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%), var(--main-bg-dark-color);
+    background: url('widgets/assets/img/main.png') -440px 0/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%), var(--main-bg-dark-color);
   }
 
-  @media (max-width: 800px) {
-    background: url('widgets/assets/img/main.png') -500px 0px/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%);
+  @media (width <= 800px) {
+    background: url('widgets/assets/img/main.png') -500px 0/cover no-repeat, linear-gradient(90deg, #121212 0%, #121212 23.34%, #020202 76.25%, #000 100%);
   }
 
   @include b.tablet {
-    background: url(http://localhost:4000/assets/main.png) 65% -5%/1200px 532.49px no-repeat, linear-gradient(90deg, #121212 0%, #121212 70%, #020202 95%, #000 100%)
+    background: url("http://localhost:4000/assets/main.png") 65% -5%/1200px 532.49px no-repeat, linear-gradient(90deg, #121212 0%, #121212 70%, #020202 95%, #000 100%)
   }
 
   &__wrapper {
@@ -31,12 +31,11 @@
 
   &__title {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
     font-size: 72px;
     line-height: 80px;
     letter-spacing: -2px;
-    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 16.06%, #FFF 86.9%, rgba(255, 255, 255, 0.00) 106.25%);
-    -webkit-background-clip: text;
+    background-image: linear-gradient(180deg, rgb(255 255 255 / 0%) 0%, #FFF 16.06%, #FFF 86.9%, rgb(255 255 255 / 0%) 106.25%);
     background-clip: text;
     color: transparent;
     max-width: 480px;
