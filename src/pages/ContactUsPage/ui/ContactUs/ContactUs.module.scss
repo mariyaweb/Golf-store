@@ -1,0 +1,51 @@
+@use 'app/styles/mixins/breakpoint.scss' as b;
+
+.contactUs {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &__title {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+
+    @include b.tablet {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: var(--main-bg-medium-color);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    gap: 8px;
+    flex-basis: 30%;
+    flex-grow: 1;
+
+    @include b.tablet {
+      min-width: 240px;
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__itemTitle {
+    color: var(--text-medium-color);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}

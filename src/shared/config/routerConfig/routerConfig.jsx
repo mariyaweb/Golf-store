@@ -1,8 +1,9 @@
 import AboutPage from '../../../pages/AboutPage/AboutPage.async';
 import ShopPage from '../../../pages/ShopPage/CatalogPage.async';
 import MainPage from '../../../pages/MainPage/MainPage.async';
-import { NotFoundPage } from '../../../pages/NotFoundPage';
 import ProductPage from '../../../pages/ProductPage/ProductPage';
+import ContactUsPage from '../../../pages/ContactUsPage/ContactUsPage';
+import { NotFoundPage } from '../../../pages/NotFoundPage';
 
 export const AppRoutes = {
   MAIN: 'main',
@@ -10,6 +11,7 @@ export const AppRoutes = {
   SHOP: 'shop',
   SHOP_CATEGORY: 'shop_category',
   SHOP_PRODUCT: 'shop_product',
+  CONTACTS: 'contacts',
   NOT_FOUND: 'not_found',
 };
 
@@ -18,6 +20,7 @@ const routes = [
   { key: AppRoutes.ABOUT, path: '/about', component: <AboutPage /> },
   { key: AppRoutes.SHOP, path: '/shop', component: <ShopPage /> },
   { key: AppRoutes.SHOP_PRODUCT, path: '/shop/:productId', component: <ProductPage /> },
+  { key: AppRoutes.CONTACTS, path: '/contacts', component: <ContactUsPage /> },
   { key: AppRoutes.NOT_FOUND, path: '*', component: <NotFoundPage /> },
 ];
 
